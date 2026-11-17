@@ -1,0 +1,232 @@
+/* zsokescsirke.hu - 2000-es évek hangulat, modern alapokon */
+
+:root {
+  --pink: #ff3fa4;
+  --cyan: #00d9ff;
+  --yellow: #ffe500;
+  --lime: #8cff3f;
+  --purple: #7a2cff;
+  --orange: #ff8a1f;
+  --ink: #1a0b2e;
+  --paper: #fffbe8;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Comic Sans MS", "Comic Sans", "Comic Neue", "Chalkboard SE", cursive;
+  color: var(--ink);
+  line-height: 1.6;
+  background-color: var(--cyan);
+  background-image:
+    radial-gradient(circle at 20% 20%, var(--yellow) 0 6px, transparent 7px),
+    radial-gradient(circle at 70% 60%, var(--pink) 0 5px, transparent 6px),
+    radial-gradient(circle at 40% 85%, var(--lime) 0 5px, transparent 6px);
+  background-size: 90px 90px, 120px 120px, 70px 70px;
+}
+
+a { color: var(--purple); font-weight: bold; }
+a:hover { color: var(--pink); }
+
+/* ---------- Futó szöveg ---------- */
+.marquee {
+  background: var(--ink);
+  color: var(--yellow);
+  border-bottom: 4px solid var(--pink);
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 6px 0;
+  font-weight: bold;
+}
+.marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll 22s linear infinite;
+}
+@keyframes scroll {
+  to { transform: translateX(-100%); }
+}
+
+/* ---------- Oldal váz ---------- */
+.wrap {
+  width: min(960px, 100% - 2rem);
+  margin: 1.5rem auto 3rem;
+}
+
+/* ---------- Menü / fülek ---------- */
+.tabs {
+  display: flex;
+  gap: .5rem;
+  padding: 0 1rem;
+  margin: 0;
+  list-style: none;
+  flex-wrap: wrap;
+}
+.tabs a {
+  display: inline-block;
+  padding: .55rem 1.4rem;
+  background: var(--yellow);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 1.1rem;
+  border: 4px solid var(--ink);
+  border-bottom: none;
+  border-radius: 18px 18px 0 0;
+  transform: rotate(-1.5deg);
+  transition: transform .15s, background .15s;
+}
+.tabs li:nth-child(2) a { background: var(--lime); transform: rotate(1.2deg); }
+.tabs a:hover { transform: translateY(-4px) rotate(0); background: var(--pink); color: #fff; }
+.tabs a[aria-current="page"] {
+  background: var(--paper);
+  padding-bottom: 1rem;
+  margin-bottom: -4px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ---------- Fő doboz ---------- */
+.box {
+  position: relative;
+  background: var(--paper);
+  border: 4px solid var(--ink);
+  border-radius: 24px;
+  box-shadow: 10px 10px 0 var(--pink);
+  padding: clamp(1.2rem, 4vw, 2.5rem);
+}
+
+/* ---------- Főoldal ---------- */
+.hero { text-align: center; }
+
+.logo-frame {
+  display: inline-block;
+  padding: 14px;
+  background: #fff;
+  border: 4px dashed var(--purple);
+  border-radius: 30px;
+  transform: rotate(-2deg);
+  box-shadow: 8px 8px 0 var(--yellow);
+  transition: transform .3s;
+}
+.logo-frame:hover { transform: rotate(2deg) scale(1.03); }
+.logo-frame img {
+  display: block;
+  width: min(420px, 78vw);
+  height: auto;
+  border-radius: 18px;
+}
+
+h1 {
+  margin: 1.4rem 0 .2rem;
+  font-size: clamp(2rem, 7vw, 3.6rem);
+  line-height: 1.1;
+  background: linear-gradient(90deg, var(--pink), var(--orange), var(--purple), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(3px 3px 0 var(--ink));
+}
+.subtitle {
+  margin: 0 0 1.5rem;
+  font-size: 1.2rem;
+}
+
+.intro {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 1.2rem 1.5rem;
+  background: var(--yellow);
+  border: 4px solid var(--ink);
+  border-radius: 20px;
+  transform: rotate(.8deg);
+  text-align: left;
+}
+.intro p { margin: .4rem 0; }
+
+.btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: .8rem 1.8rem;
+  background: var(--purple);
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.15rem;
+  border: 4px solid var(--ink);
+  border-radius: 999px;
+  box-shadow: 5px 5px 0 var(--ink);
+  transition: transform .12s, box-shadow .12s;
+}
+.btn:hover {
+  background: var(--pink);
+  color: #fff;
+  transform: translate(3px, 3px);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+/* ---------- Egyebek ---------- */
+h2 {
+  margin-top: 0;
+  font-size: clamp(1.7rem, 5vw, 2.4rem);
+  color: var(--purple);
+  text-shadow: 3px 3px 0 var(--yellow);
+}
+
+.projects {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: 1.5rem;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.4rem;
+  border: 4px solid var(--ink);
+  border-radius: 22px;
+  box-shadow: 7px 7px 0 var(--ink);
+  transition: transform .2s;
+}
+.card:nth-child(1) { background: var(--lime); transform: rotate(-1deg); }
+.card:nth-child(2) { background: var(--cyan); transform: rotate(1deg); }
+.card:hover { transform: rotate(0) translateY(-6px); }
+.card .emoji { font-size: 3rem; line-height: 1; }
+.card h3 { margin: .6rem 0 .3rem; font-size: 1.4rem; }
+.card p { margin: 0 0 1rem; flex: 1; }
+.card .btn { margin-top: 0; align-self: flex-start; background: var(--pink); }
+.card .btn:hover { background: var(--purple); }
+.card .url { font-size: .8rem; opacity: .75; margin-top: .6rem; word-break: break-all; }
+
+/* ---------- Lábléc ---------- */
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: .95rem;
+}
+.counter {
+  display: inline-block;
+  margin: .5rem 0;
+  padding: .3rem .9rem;
+  background: var(--ink);
+  color: var(--lime);
+  border: 3px solid var(--lime);
+  border-radius: 8px;
+  font-family: "Courier New", monospace;
+  letter-spacing: .15em;
+}
+.sparkle { display: inline-block; animation: spin 4s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---------- Mozgáscsökkentés ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .marquee span { animation: none; padding-left: 0; }
+  .sparkle { animation: none; }
+  * { transition: none !important; }
+}
+
+@media (max-width: 520px) {
+  .box { box-shadow: 6px 6px 0 var(--pink); }
+}

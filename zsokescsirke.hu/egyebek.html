@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Egyebek – zsokescsirke.hu</title>
+  <meta name="description" content="A zsokescsirke.hu projektjei: Super Tic Tac Toe és Napi teendők">
+  <link rel="icon" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="marquee" aria-hidden="true" style="text-align: center;">
+    <span>★ Itt vannak a projektjeim! ★ Kattints bátran, nem harapnak! ★ Új dolgok hamarosan... talán! ★</span>
+  </div>
+
+  <div class="wrap">
+    <ul class="tabs">
+      <li><a href="index.html">🏠 Főoldal</a></li>
+      <li><a href="egyebek.html" aria-current="page">🎲 Egyebek</a></li>
+    </ul>
+
+    <main class="box">
+      <h2>🎲 Egyebek</h2>
+      <p>Pár dolog, amit építettem. Kattints, és már viszlek is!</p>
+
+      <div class="projects">
+
+        <article class="card">
+          <div class="emoji">❌⭕</div>
+          <h3>Super Tic Tac Toe</h3>
+          <p>
+            A klasszikus amőba, de kilenc táblán egyszerre. Ahová lépsz,
+            oda kell küldeni az ellenfelet is. Agyalós, csavaros, addiktív!
+          </p>
+          <a class="btn" href="https://sttt.zsokescsirke.hu/">Játsszunk! →</a>
+          <div class="url">sttt.zsokescsirke.hu</div>
+        </article>
+
+        <article class="card">
+          <div class="emoji">📝✅</div>
+          <h3>Napi teendők</h3>
+          <p>
+            Egyszerű teendőlista a mindennapokra. Írd fel, pipáld ki,
+            és érezd magad produktívnak!
+          </p>
+          <a class="btn" href="https://napiteendok.zsokescsirke.hu/">Megnyitom! →</a>
+          <div class="url">napiteendok.zsokescsirke.hu</div>
+        </article>
+
+      </div>
+    </main>
+
+    <footer>
+      <div>© <span id="year">2026</span> zsokescsirke.hu 🐔</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
