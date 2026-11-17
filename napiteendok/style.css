@@ -1,0 +1,144 @@
+/* napiteendok.zsokescsirke.hu */
+
+:root {
+  --pink: #ff3fa4;
+  --cyan: #00d9ff;
+  --yellow: #ffe500;
+  --lime: #8cff3f;
+  --purple: #7a2cff;
+  --ink: #1a0b2e;
+  --paper: #fffbe8;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Comic Sans MS", "Comic Sans", "Comic Neue", "Chalkboard SE", cursive;
+  color: var(--ink);
+  line-height: 1.5;
+  background-color: #fff3a8;
+  background-image:
+    radial-gradient(circle at 20% 20%, var(--pink) 0 5px, transparent 6px),
+    radial-gradient(circle at 70% 60%, var(--cyan) 0 5px, transparent 6px),
+    radial-gradient(circle at 40% 85%, var(--lime) 0 5px, transparent 6px);
+  background-size: 100px 100px, 130px 130px, 80px 80px;
+}
+
+a { color: var(--purple); font-weight: bold; }
+a:hover { color: var(--pink); }
+
+.wrap {
+  width: min(860px, 100% - 2rem);
+  margin: 2rem auto 3rem;
+}
+
+/* ---------- Fejléc ---------- */
+header { text-align: center; margin-bottom: 2rem; }
+
+h1 {
+  display: inline-block;
+  margin: 0;
+  padding: .3em .8em;
+  font-size: clamp(2rem, 7vw, 3.2rem);
+  line-height: 1.15;
+  background: var(--paper);
+  border: 4px solid var(--ink);
+  border-radius: 24px;
+  box-shadow: 8px 8px 0 var(--pink);
+  transform: rotate(-1.5deg);
+}
+
+.datum {
+  display: inline-block;
+  margin: 1.2rem 0 .2rem;
+  padding: .2rem 1rem;
+  background: var(--ink);
+  color: var(--lime);
+  border-radius: 999px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.sub { margin: .4rem 0 0; font-size: 1.1rem; }
+
+/* ---------- Kártyák ---------- */
+.cards {
+  display: grid;
+  gap: 1.6rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.2rem;
+  color: var(--card-fg, var(--ink));
+  background-color: var(--card-bg, var(--paper));
+  border: 4px solid var(--ink);
+  border-radius: 22px;
+  box-shadow: 7px 7px 0 var(--ink);
+  text-decoration: none;
+  transition: background-color .5s, transform .2s, box-shadow .2s;
+}
+.card:nth-child(odd)  { transform: rotate(-.8deg); }
+.card:nth-child(even) { transform: rotate(.8deg); }
+.card:hover {
+  color: var(--card-fg, var(--ink));
+  transform: rotate(0) translateY(-5px);
+  box-shadow: 7px 12px 0 var(--ink);
+}
+.card:focus-visible { outline: 4px solid var(--purple); outline-offset: 4px; }
+
+.card-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 68px;
+  height: 68px;
+  background: #fff;
+  border: 3px solid var(--ink);
+  border-radius: 18px;
+  font-size: 2rem;
+}
+.card-icon img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.card-body { flex: 1; min-width: 0; }
+.card-name {
+  margin: 0 0 .2rem;
+  font-size: 1.3rem;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+.card-text { margin: 0; font-size: 1rem; }
+
+.card-go { flex: none; font-size: 1.8rem; font-weight: bold; }
+
+.status {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 1rem;
+  text-align: center;
+  background: var(--paper);
+  border: 4px dashed var(--ink);
+  border-radius: 18px;
+}
+
+/* ---------- Lábléc ---------- */
+footer { margin-top: 2.5rem; text-align: center; }
+footer a {
+  padding: .4rem 1rem;
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
